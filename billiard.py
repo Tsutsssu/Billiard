@@ -1,7 +1,7 @@
 import time
 startTime = time.time()
 
-N=9
+N=8
 targetSum = N*(N-1)+1                   #要素の合計
 sup = (targetSum-1)//2                  #要素の取りうる値の最大値
 result = [0]*(N)
