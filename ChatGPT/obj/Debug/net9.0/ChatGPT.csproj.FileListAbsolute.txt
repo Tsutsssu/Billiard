@@ -1,0 +1,14 @@
+C:\Users\mirin\Documents\VScode\C#\ChatGPT\bin\Debug\net9.0\ChatGPT.exe
+C:\Users\mirin\Documents\VScode\C#\ChatGPT\bin\Debug\net9.0\ChatGPT.deps.json
+C:\Users\mirin\Documents\VScode\C#\ChatGPT\bin\Debug\net9.0\ChatGPT.runtimeconfig.json
+C:\Users\mirin\Documents\VScode\C#\ChatGPT\bin\Debug\net9.0\ChatGPT.dll
+C:\Users\mirin\Documents\VScode\C#\ChatGPT\bin\Debug\net9.0\ChatGPT.pdb
+C:\Users\mirin\Documents\VScode\C#\ChatGPT\obj\Debug\net9.0\ChatGPT.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mirin\Documents\VScode\C#\ChatGPT\obj\Debug\net9.0\ChatGPT.AssemblyInfoInputs.cache
+C:\Users\mirin\Documents\VScode\C#\ChatGPT\obj\Debug\net9.0\ChatGPT.AssemblyInfo.cs
+C:\Users\mirin\Documents\VScode\C#\ChatGPT\obj\Debug\net9.0\ChatGPT.csproj.CoreCompileInputs.cache
+C:\Users\mirin\Documents\VScode\C#\ChatGPT\obj\Debug\net9.0\ChatGPT.dll
+C:\Users\mirin\Documents\VScode\C#\ChatGPT\obj\Debug\net9.0\refint\ChatGPT.dll
+C:\Users\mirin\Documents\VScode\C#\ChatGPT\obj\Debug\net9.0\ChatGPT.pdb
+C:\Users\mirin\Documents\VScode\C#\ChatGPT\obj\Debug\net9.0\ChatGPT.genruntimeconfig.cache
+C:\Users\mirin\Documents\VScode\C#\ChatGPT\obj\Debug\net9.0\ref\ChatGPT.dll
