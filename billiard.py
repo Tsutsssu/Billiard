@@ -1,16 +1,16 @@
 import time
 startTime = time.time()
 
-N=8
-targetSum = N*(N-1)+1                   #要素の合計
-sup = (targetSum-1)//2                  #要素の取りうる値の最大値
+N=9
+targetSum = N*(N-1)+1       #要素の合計
+sup = (targetSum-1)//2 +1   #要素の取りうる値の最大値
 result = [0]*(N)
 result[0] = 1
 
 candidates = [0,tuple(range(2, sup+1))]     #要素の候補リスト
 
-resultIndex = 1         #現在参照しているresultのindex
-candidatesIndex = [0,0]       #candidatesに含まれるtupleの何番目までを参照したかまとめたもの
+resultIndex = 1             #現在参照しているresultのindex
+candidatesIndex = [0,0]     #candidatesに含まれるtupleの何番目までを参照したかまとめたもの
 
 print(N,"角形")
 
@@ -36,7 +36,7 @@ while result[0] != 0:
     for j in range(resultIndex,-1,-1):
         partialSum += result[j]
 
-        if min(partialSum,targetSum-partialSum) in tmpSet:       #partialSum,targetSum-partialSumのうち大きい方はsupを超えるので、tmpSetに含まれているはずがない
+        if min(partialSum,targetSum-partialSum) in tmpSet:  #partialSum,targetSum-partialSumのうち大きい方は、"大抵"supを超える。sup-1 と sup のみ例外(sup-1 + sup == targetSum)で、このときsup-1の方がtmpSumに含まれるかどうかの判定が行われる。よって最終的にはtmpSetにsupのみが残る。
             #被ってないとき
             tmpSet.remove(min(partialSum,targetSum-partialSum))
         else:
@@ -66,4 +66,4 @@ while result[0] != 0:
         candidatesIndex[resultIndex] += 1
 
 
-print("実行時間 :", time.time() - startTime)
+print("python  実行時間:", time.time() - startTime)
