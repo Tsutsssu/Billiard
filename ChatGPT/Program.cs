@@ -4,7 +4,7 @@ using System.Diagnostics;
 
 class Program
 {
-    const int N = 10;
+    const int N = 11;
     static readonly int targetSum = N*(N-1) +1;
     static readonly int sup = (targetSum-1)/2 +1;
 
@@ -22,19 +22,19 @@ class Program
         candidate.Add((int[])tmp.Clone());
         indexMemo.Add(0);
 
-        int resultIndex = 1;
+        int depth = 1;
         int tmpIndex = 0;
 
         Console.WriteLine($"{N} 角形");
 
         while (result[0] != 0)
         {
-            result[resultIndex] = tmp[tmpIndex];
+            result[depth] = tmp[tmpIndex];
             int partialSum = 0;
             bool valid = true;
             var tmpList = new List<int>(tmp);
 
-            for (int j = resultIndex; j >= 0; j--)
+            for (int j = depth; j >= 0; j--)
             {
                 partialSum += result[j];
 
@@ -48,39 +48,39 @@ class Program
             if (!valid)
             {
                 // バックトラック
-                result[resultIndex] = 0;
-                while (resultIndex >= 1 && candidate[resultIndex-1].Length <= tmpIndex+1)
+                result[depth] = 0;
+                while ((depth >= 1 && candidate[depth-1].Length <= tmpIndex+1)||(depth == N/2 && candidate[depth-1][0] == 2))
                 {
-                    resultIndex--;
-                    tmpIndex = indexMemo[resultIndex];
-                    indexMemo.RemoveAt(resultIndex);
-                    candidate.RemoveAt(resultIndex);
-                    result[resultIndex] = 0;
+                    depth--;
+                    tmpIndex = indexMemo[depth];
+                    indexMemo.RemoveAt(depth);
+                    candidate.RemoveAt(depth);
+                    result[depth] = 0;
                 }
-                if (resultIndex == 0) break;
-                tmp = (int[])candidate[resultIndex-1].Clone();
+                if (depth == 0) break;
+                tmp = (int[])candidate[depth-1].Clone();
                 tmpIndex++;
                 continue;
             }
 
-            if (resultIndex >= N-2)
+            if (depth >= N-2)
             {
                 // 解を発見
                 result[N-1] = targetSum - partialSum;
                 Console.WriteLine(string.Join(",", result));
 
                 // バックトラック
-                result[resultIndex] = 0;
-                while (resultIndex >= 1 && candidate[resultIndex-1].Length <= tmpIndex+1)
+                result[depth] = 0;
+                while ((depth >= 1 && candidate[depth-1].Length <= tmpIndex+1)||(depth == N/2 && candidate[depth-1][0] == 2))
                 {
-                    resultIndex--;
-                    tmpIndex = indexMemo[resultIndex];
-                    indexMemo.RemoveAt(resultIndex);
-                    candidate.RemoveAt(resultIndex);
-                    result[resultIndex] = 0;
+                    depth--;
+                    tmpIndex = indexMemo[depth];
+                    indexMemo.RemoveAt(depth);
+                    candidate.RemoveAt(depth);
+                    result[depth] = 0;
                 }
-                if (resultIndex == 0) break;
-                tmp = (int[])candidate[resultIndex-1].Clone();
+                if (depth == 0) break;
+                tmp = (int[])candidate[depth-1].Clone();
                 tmpIndex++;
             }
             else
@@ -90,7 +90,7 @@ class Program
                 candidate.Add((int[])tmp.Clone());
                 indexMemo.Add(tmpIndex);
                 tmpIndex = 0;
-                resultIndex++;
+                depth++;
             }
         }
 
