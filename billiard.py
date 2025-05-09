@@ -1,7 +1,7 @@
 import time
 startTime = time.time()
 
-N=10
+N=9
 targetSum = N*(N-1)+1       #要素の合計
 sup = (targetSum-1)//2 +1   #要素の取りうる値の最大値
 result = [0]*(N)
@@ -16,7 +16,7 @@ print(N,"角形")
 
 def SupCheck():
     global depth
-    while depth >= 1 and (len(candidates[depth]) <= candidatesIndex[depth]+1):
+    while (depth >= 1 and len(candidates[depth]) <= candidatesIndex[depth]+1)or(depth == N//2 and candidates[depth][0] == 2):
         #tmpの中の数字が全部ダメだったらdepthを1下げる
         del candidatesIndex[depth]
         del candidates[depth]
@@ -53,10 +53,7 @@ while result[0] != 0:
 
     if depth < N-2:
         #まだ最後まで埋まってないのでdepthを上げて次に行く
-        if depth+1 == N//2 and 2 in tmpSet:
-            candidates.append([2])
-        else:
-            candidates.append(tuple(tmpSet))
+        candidates.append(tuple(tmpSet))
         candidatesIndex.append(0)
         depth += 1 
     else:
